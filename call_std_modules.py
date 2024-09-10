@@ -40,9 +40,19 @@ def main():
     # help(Environment.GetFolderPath)  # view help page of GetFolderPath method
 
     # Using out/ref parameters
-    # `TryParse(string, out int) -> bool` returns (bool, int)
+    # if the method has out/ref parameters,
+    #   returns a tuple of (return value, out/ref parameters...)
     success, value = Int32.TryParse("42")
     print(success, value)
+
+    # Using Arrays
+    from System import Array, Int32  # type: ignore
+
+    myarray = Array[Int32]([1, 2, 3])
+    myarray[0] = 42
+    print(myarray[0], myarray[-1], len(myarray), 2 in myarray)
+    for i in myarray:
+        print(i)
 
 
 # run following command to run this script with uv
